@@ -3,14 +3,18 @@
 {% block title %}Welcome to bresgeorge.com{% endblock %}
 {% block content %}
 
-
+<!--
 <div class="mt-10">
     <ul class="list-decimal">
         <li>
-            <p class="text-lg font-semibold " ><a class="text-red-700" href="{% url 'about' %}">Nihilist Arby's Wall Art
- </a></p>
-            <p class="">#web design <span class="">#2019</span> </p>
+            <div class=" " >
+                <div class="flex-auto bg-blue-400 ">
+                  <a class="text-red-700 text-lg font-semibold bg-green-400" onmouseover = "show()" onmouseout="hide()" href="{% url 'about' %}">Nihilist Arby's Wall Art</a>
+                </div>
 
+
+            </div>
+            <p class="">#web design <span class="">#2019</span> </p>
         </li>
           <li>
             <p class="text-lg font-semibold " > casamania</p>
@@ -30,16 +34,32 @@
         </li>
     </ul>
 </div>
+<br>
+ <div class="flex-1 ">
+                   <img src="{% static 'images/ai.png' %}"  class="object-cover ml-64 w-2/5 border-double border-4 border-red-700" style="visibility:hidden" id = "img1" >
+ </div>
+ -->
 
-<h1>A Web Page</h1>
-<p id="demo">A Paragraph</p>
-<button type="button" onclick="myFunction()">Try it</button>
 
-<script>
-function myFunction() {
- document.getElementById("demo").innerHTML = "Paragraph changed.";
+<div class="grid grid-cols-3 gap-4">
+  <div>1</div>
+  <!-- ... -->
+  <div>9</div>
+</div>
+
+
+
+<script type = "text/javascript">
+function show() {
+    document.getElementById('img1').style.visibility = 'visible';
 }
+function hide() {
+    document.getElementById('img1').style.visibility = 'hidden';
+}
+
 </script>
+
+
 
 {% endblock %}
 
