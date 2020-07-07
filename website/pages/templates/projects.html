@@ -3,84 +3,48 @@
 {% block title %}Welcome to bresgeorge.com{% endblock %}
 {% block content %}
 
-<!--
-<div class="mt-10">
-    <ul class="list-decimal">
-        <li>
-            <div class=" " >
-                <div class="flex-auto bg-blue-400 ">
-                  <a class="text-red-700 text-lg font-semibold bg-green-400" onmouseover = "show()" onmouseout="hide()" href="{% url 'about' %}">Nihilist Arby's Wall Art</a>
-                </div>
 
 
-            </div>
-            <p class="">#web design <span class="">#2019</span> </p>
-        </li>
-          <li>
-            <p class="text-lg font-semibold " > casamania</p>
-            <p class="">#web design</p>
-        </li>
-          <li>
-            <p class="text-lg font-semibold " > miow</p>
-            <p class="">#web design</p>
-        </li>
-          <li>
-            <p class="text-lg font-semibold " >  interior</p>
-            <p class="">#web design</p>
-        </li>
-          <li>
-            <p class="text-lg font-semibold " > Nihilist Arby's Wall Art</p>
-            <p class="">#web design</p>
-        </li>
-    </ul>
-</div>
-<br>
- <div class="flex-1 ">
-                   <img src="{% static 'images/ai.png' %}"  class="object-cover ml-64 w-2/5 border-double border-4 border-red-700" style="visibility:hidden" id = "img1" >
+
+<div class="sm:pt-10 leading-relaxed  flex mb-4">
+
+  <div class="w-1/3 ">
+      <ul class="list-disc">
+
+      <li>
+          <a href="" class="hover:underline text-lg" onmouseover="show()" onmouseout="hide()">miou13.gr</a>
+      </li>
+      <li>
+          <a href="" class="hover:underline text-lg" onmouseover="show()" onmouseout="hide()">miou13.gr</a>
+      </li>
+
+      </ul>
+  </div>
+
+  <div class="w-2/3 ">
+      <img src="{% static 'images/ai.png' %}"  id="img1"  alt="" style="visibility: hidden; " class=" object-cover w-4/5 border-double border-4 border-red-700">
  </div>
- -->
 
 
-<div class="grid grid-cols-2 mt-10">
-  <div>
-    <ul class="list-decimal">
-      <li><a class="text-red-700 text-lg font-semibold 0" onmouseover = "show()" onmouseout="hide()" href="{% url 'about' %}">
-    Nihilist Arby's Wall Art</a></li>
-      <li><a class="text-red-700 text-lg font-semibold " onmouseover = "show()" onmouseout="hide()" href="{% url 'about' %}">
-    Nihilist Arby's Wall Art</a></li>
-      <li><a class="text-red-700 text-lg font-semibold " onmouseover = "show()" onmouseout="hide()" href="{% url 'about' %}">
-    Nihilist Arby's Wall Art</a></li>
-      <li><a class="text-red-700 text-lg font-semibold " onmouseover = "show()" onmouseout="hide()" href="{% url 'about' %}">
-    Nihilist Arby's Wall Art</a></li>
-      <li><a class="text-red-700 text-lg font-semibold " onmouseover = "show()" onmouseout="hide()" href="{% url 'about' %}">
-    Nihilist Arby's Wall Art</a></li>
-      <li><a class="text-red-700 text-lg font-semibold " onmouseover = "show()" onmouseout="hide()" href="{% url 'about' %}">
-    Nihilist Arby's Wall Art</a></li>
-      <li><a class="text-red-700 text-lg font-semibold " onmouseover = "show()" onmouseout="hide()" href="{% url 'about' %}">
-    Nihilist Arby's Wall Art</a></li>
 
 
-    </ul>
 
 </div>
-  <div>
-    <img src="{% static 'images/ai.png' %}"  class="object-cover  w-4/5 border-double border-4 border-red-700" style="visibility:hidden" id = "img1" >
-</div>
-</div>
+
+<script >
+
+    var x=document.getElementById('img1')
+    function show(){
+    x.style.visibility='visible';
+    }
+      function hide(){
+    x.style.visibility='hidden';
+    }
 
 
 
-<script type = "text/javascript">
-function show() {
-    document.getElementById('img1').style.visibility = 'visible';
-}
-function hide() {
-    document.getElementById('img1').style.visibility = 'hidden';
-}
 
 </script>
-
-
 
 {% endblock %}
 

@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>{% block title %} {% endblock %}</title>
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .hover_img a { position:relative; }
+        .hover_img a div { position:absolute; margin-left:150px; display:none; z-index:99; width:300px; }
+        .hover_img a:hover div { display:block; }
+    </style>
 </head>
 <body class="bg-orange-100 px-6 font-serif tracking-wide antialiased">
 

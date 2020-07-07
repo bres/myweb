@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Welcome to bresgeorge.com{% endblock %}
 {% block content %}
-         <p class="pt-2 sm:pt-10 leading-relaxed tracking-wider text-lg">
+     <!--    <p class="pt-2 sm:pt-10 leading-relaxed tracking-wider text-lg">
             Hi, i'm a student of Informatics and a web developer living in Athens,Greece.<br>
             I create websites from scratch with the great power of Django & Python.<br>
             Simplicity & functionality in design are my rails, security my scope.<br>
@@ -10,6 +10,17 @@
             Happy to working remotely, so feel to free to <a class="text-red-700 hover:underline" href="{% url 'contact' %}">Skype</a> me :)
             <p class="mt-8 tracking-wider text-lg">There is always more <a class="text-red-700 hover:underline" href="{% url 'about' %}">about</a> me..</p>
         </p>
+-->
+<div class="pt-2 sm:pt-10 leading-relaxed tracking-wider ">
+
+    {% if all_items %}
+        {% for x in all_items %}
+    {% autoescape off %}
+         {{ x.body|linebreaks  }}
+    {% endautoescape %}
+        {% endfor%}
+    {% endif %}
+</div>
     </div>
 </div>
 
@@ -28,6 +39,8 @@
 
      </div>
 </div>
+
+
 
 {% endblock %}
 </body>
