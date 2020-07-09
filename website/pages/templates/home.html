@@ -2,40 +2,47 @@
 {% load static %}
 {% block title %}Welcome to bresgeorge.com{% endblock %}
 {% block content %}
-     <!--    <p class="pt-2 sm:pt-10 leading-relaxed tracking-wider text-lg">
-            Hi, i'm a student of Informatics and a web developer living in Athens,Greece.<br>
-            I create websites from scratch with the great power of Django & Python.<br>
-            Simplicity & functionality in design are my rails, security my scope.<br>
-            Two hobbies, exploring architectures for A.I & Machine Learning & the sea! <br>
-            Happy to working remotely, so feel to free to <a class="text-red-700 hover:underline" href="{% url 'contact' %}">Skype</a> me :)
-            <p class="mt-8 tracking-wider text-lg">There is always more <a class="text-red-700 hover:underline" href="{% url 'about' %}">about</a> me..</p>
-        </p>
--->
-<div class="pt-2 sm:pt-10 leading-relaxed tracking-wider ">
 
+<div class="pt-2 sm:pt-10 leading-relaxed tracking-wider text-lg">
     {% if all_items %}
         {% for x in all_items %}
     {% autoescape off %}
-         {{ x.body|linebreaks  }}
-    {% endautoescape %}
-        {% endfor%}
+             {{ x.body|linebreaks }}
+{% endautoescape %}
+         {% endfor%}
     {% endif %}
 </div>
     </div>
 </div>
 
-<div class="flex flex-wrap mt-32 sm:flex-no-wrap items-start">
+<div class="flex flex-wrap mt-40 sm:flex-no-wrap items-start">
     <div class="flex-initial w-64 ">
         <p class="text-xl">The Latest's</p>
     </div>
     <div class="flex-initial">
-            <div class="">
-                <img src="{% static 'images/ai.png' %}" alt="" class="object-cover w-4/5 border-double border-4 border-red-700">
-            </div>
-            <div class="mt-4">
-                <p class="font-medium text-lg">Snagging Parking Spaces with Mask R-CNN and Python</p>
-                <p class="">Using Deep Learning to Solve Minor Annoyances</p>
-            </div>
+           {% if all_posts %}
+        {% for x in all_posts %}
+    <!-- component -->
+    <div class="flex flex-col  pb-20 max-w-lg ">
+
+        <div class="flex justify-between items-center">
+            <span class="font-light ">{{ x.pub_date  }}</span>
+            <a class="px-2 py-1  text-red-700  " href="#">#web design</a>
+        </div>
+
+        <div class="">
+            <img src="{{x.image.url}}" class="bg-contain ">
+        </div>
+        <div class="mt-2">
+            <a class="text-xl font-semibold " href="#">{{ x.title  }}</a>
+            <p class="mt-2 text-lg leading-relaxed ">{{ x.body  }}</p>
+        </div>
+
+
+    </div>
+
+         {% endfor%}
+    {% endif %}
 
      </div>
 </div>
