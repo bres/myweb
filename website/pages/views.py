@@ -5,8 +5,10 @@ from .models import Landing_content,Posts
 
 def home(request):
     all_items=Landing_content.objects.all
-    all_posts = Posts.objects.all
-    return render(request,"home.html",{'all_items':all_items,'all_posts':all_posts})
+
+    latest_post = Posts.objects.last()
+    return render(request,"home.html",{'all_items':all_items,'latest_post':latest_post})
+
 
 def about(request):
     return render(request,"about.html",{})
@@ -15,7 +17,7 @@ def projects(request):
     return render(request,"projects.html",{})
 
 def blog(request):
-    all_posts=Posts.objects.all
+    all_posts=Posts.objects.order_by('-id')
     return render(request,"blog.html",{'all_posts':all_posts})
 
 def contact(request):

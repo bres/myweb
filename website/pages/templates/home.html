@@ -12,43 +12,50 @@
          {% endfor%}
     {% endif %}
 </div>
-    </div>
-</div>
+{% endblock %}
 
-<div class="flex flex-wrap mt-40 sm:flex-no-wrap items-start">
+{% block post %}
+
+<div class="flex flex-wrap mt-24 sm:flex-no-wrap items-start">
     <div class="flex-initial w-64 ">
         <p class="text-xl">The Latest's</p>
     </div>
     <div class="flex-initial">
-           {% if all_posts %}
-        {% for x in all_posts %}
-    <!-- component -->
+           {% if latest_post %}
+     <!-- component -->
     <div class="flex flex-col  pb-20 max-w-lg ">
 
         <div class="flex justify-between items-center">
-            <span class="font-light ">{{ x.pub_date  }}</span>
+            <span class="font-light ">{{ latest_post.pub_date  }}</span>
             <a class="px-2 py-1  text-red-700  " href="#">#web design</a>
         </div>
 
         <div class="">
-            <img src="{{x.image.url}}" class="bg-contain ">
+            <img src="{{ latest_post.image.url }}" class="bg-contain ">
         </div>
         <div class="mt-2">
-            <a class="text-xl font-semibold " href="#">{{ x.title  }}</a>
-            <p class="mt-2 text-lg leading-relaxed ">{{ x.body  }}</p>
+            <a class="text-xl font-semibold " href="#">{{ latest_post.title  }}</a>
+            <p class="mt-2 text-lg leading-relaxed ">{{ latest_post.body  }}</p>
         </div>
 
 
     </div>
 
-         {% endfor%}
-    {% endif %}
+     {% endif %}
 
      </div>
 </div>
 
-
-
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
