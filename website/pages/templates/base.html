@@ -7,43 +7,32 @@
 
 </head>
 <body class="bg-orange-100 px-6 font-serif tracking-wide antialiased">
-
-<p class="text-2xl font-sans font-semibold text-black pt-12 "><a class="" href="{% url 'home' %}">BresGeorge</a></p>
-
-<div class="sm:hidden">
-    <ul class="pt-10 flex">
-                <li><a class="text-red-700 hover:underline pr-2 text-xl" href="{% url 'projects' %}">Projects</a></li>
-                <li><a class="text-red-700 hover:underline px-2 text-xl" href="{% url 'blog' %}">Blog</a></li>
-                <li><a class="text-red-700 hover:underline text-xl" href="{% url 'blog' %}">Discord</a></li>
-                <li><a class="text-red-700 hover:underline px-2 text-xl" href="{% url 'contact' %}">Contact</a></li>
-            </ul>
+<div class=" ">
+<p class="text-2xl font-sans font-semibold text-black pt-12 relative"><a class="" href="{% url 'home' %}">BresGeorge</a></p>
+        <p class="text-sm italic px-6  "> ...always with a smile :)</p>
 </div>
-<div class="flex ">
-    <div class="hidden sm:block flex-none w-64">
-        <div class="">
-            <ul class="pt-10">
+
+<div class="flex flex-col sm:flex-row">
+
+    <div class="flex-initial w-64">
+             <ul class="flex sm:block pt-10">
                 <li><a class="text-red-700 hover:underline text-xl" href="{% url 'projects' %}">Projects</a></li>
                 <li><a class="text-red-700 hover:underline text-xl" href="{% url 'blog' %}">Blog</a></li>
                 <li><a class="text-red-700 hover:underline text-xl" href="{% url 'blog' %}">Discord</a></li>
                 <li><a class="text-red-700 hover:underline text-xl" href="{% url 'contact' %}">Contact</a></li>
             </ul>
-        </div>
-    </div>
-    <div class="flex-1">
-         {% block content %}
+     </div>
 
-        {% endblock %}
-
+    <div class="flex-1 ">
+         {% block content %} {% endblock %}
     </div>
 
 </div>
 
-{% block post %}
 
-{% endblock %}
+{% block post %} {% endblock %}
 
-{% block sidebar%}
-{% endblock %}
+{% block sidebar%} {% endblock %}
 
 </body>
 </html>
