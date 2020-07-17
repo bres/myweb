@@ -1,70 +1,53 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Welcome to bresgeorge.com{% endblock %}
+
 {% block content %}
-
-<div class="sm:pt-10 leading-relaxed  flex flex-col mb-4">
-
-    {% if all_posts %}
-        {% for x in all_posts %}
-    <!-- component -->
-    <div class="flex flex-col px-10 pb-20 max-w-3xl ">
-
+<!-- right part -->
+<div class="pt-10 flex flex-col mb-4">
+{% if all_posts %}
+    {% for x in all_posts %}
+     <div class="flex flex-col pb-20 max-w-2xl ">
         <div class="flex justify-between items-center">
-            <span class="font-light ">{{ x.pub_date  }}</span>
-            <a class="px-2 py-1  text-red-700  " href="#">#web design</a>
+            <span class="font-light">{{ x.pub_date }}</span>
+            <a class="px-2 py-1 text-red-700" href="#">#{{ x.tags }} </a>
         </div>
-
-        <div class="">
+        <div>
             <img src="{{x.image.url}}" class="bg-contain ">
         </div>
         <div class="mt-2">
-            <a class="text-2xl text-gray-700 font-bold hover:text-gray-600" href="#">{{ x.title  }}</a>
-            <p class="mt-2 text-gray-600">{{ x.body  }}</p>
+            <a class="text-xl text-gray-700 font-bold hover:text-gray-600" href="#">{{ x.title }}</a>
+            <p class="mt-2 text-gray-600">{{ x.body|truncatewords:20 }}</p>
         </div>
         <div class="flex justify-between items-center mt-4">
-            <a class="text-blue-600 hover:underline" href="#">Read more</a>
+            <a class="text-red-700 hover:underline" href="#">Read more</a>
         </div>
-
     </div>
-
-         {% endfor%}
-    {% endif %}
-
-
+    {% endfor%}
+{% endif %}
 </div>
-
-
-
 {% endblock %}
+
+
 {% block sidebar%}
-
-<div>
-    <div class="fixed top-0 mt-64 pt-16 ">
-        <p class="font-medium text-xl pb-2">The Tags</p>
-        <ul>
-            <li class="text-red-700 ">
-                <a class="text-red-700 hover:underline pr-2 " href="{% url 'projects' %}">#Web Design</a>
-            </li>
-             <li class="text-red-700 ">
-                 <a class="text-red-700 hover:underline pr-2 " href="{% url 'projects' %}">#Machine Learnig</a>
-
-            </li>
-             <li class="text-red-700 ">
-                 <a class="text-red-700 hover:underline pr-2 l" href="{% url 'projects' %}">#The Sea</a>
-
-            </li>
-             <li class="text-red-700 ">
-                 <a class="text-red-700 hover:underline pr-2 " href="{% url 'projects' %}">#Apps</a>
-
-            </li>
-        </ul>
-
-    </div>
+<!-- sidebar fixed on large screens and hidden on small -->
+<div class="hidden sm:block fixed top-0 mt-64 pt-32 ">
+    <p class="font-medium text-xl pb-2">The Tags</p>
+    <ul>
+        <li class="text-red-700 ">
+            <a class="text-red-700 hover:underline pr-2 " href="{% url 'projects' %}">#Web Design</a>
+        </li>
+         <li class="text-red-700 ">
+             <a class="text-red-700 hover:underline pr-2 " href="{% url 'projects' %}">#Machine Learnig</a>
+        </li>
+         <li class="text-red-700 ">
+             <a class="text-red-700 hover:underline pr-2 l" href="{% url 'projects' %}">#The Sea</a>
+        </li>
+         <li class="text-red-700 ">
+             <a class="text-red-700 hover:underline pr-2 " href="{% url 'projects' %}">#Apps</a>
+        </li>
+    </ul>
 </div>
-
-
-
 {% endblock%}
 
 

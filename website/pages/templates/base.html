@@ -4,31 +4,28 @@
     <meta charset="UTF-8">
     <title>{% block title %} {% endblock %}</title>
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-
 </head>
+
 <body class="bg-orange-100 px-6 font-serif tracking-wide antialiased">
-<div class=" ">
+
 <p class="text-2xl font-sans font-semibold text-black pt-12 relative"><a class="" href="{% url 'home' %}">BresGeorge</a></p>
-        <p class="text-sm italic px-6  "> ...always with a smile :)</p>
-</div>
-
+<p class="text-sm italic px-6  "> ...always with a smile :)</p>
+<!-- left & right -->
 <div class="flex flex-col sm:flex-row">
-
-    <div class="flex-initial w-64">
+<!-- left part -->
+    <div class="flex-none w-56">
              <ul class="flex sm:block pt-10">
-                <li><a class="text-red-700 hover:underline text-xl" href="{% url 'projects' %}">Projects</a></li>
-                <li><a class="text-red-700 hover:underline text-xl" href="{% url 'blog' %}">Blog</a></li>
-                <li><a class="text-red-700 hover:underline text-xl" href="{% url 'blog' %}">Discord</a></li>
-                <li><a class="text-red-700 hover:underline text-xl" href="{% url 'contact' %}">Contact</a></li>
+                <li class=" pr-2 sm:px-0"><a class="text-red-700 hover:underline text-xl" href="{% url 'projects' %}">Projects</a></li>
+                <li class=" pr-2 sm:px-0"><a class="text-red-700 hover:underline text-xl" href="{% url 'blog' %}">Blog</a></li>
+                <li class=" pr-2 sm:px-0"><a class="text-red-700 hover:underline text-xl" href="{% url 'blog' %}">Discord</a></li>
+                <li class=" pr-2 sm:px-0"><a class="text-red-700 hover:underline text-xl" href="{% url 'contact' %}">Contact</a></li>
             </ul>
-     </div>
-
+    </div>
+<!-- right part -->
     <div class="flex-1 ">
          {% block content %} {% endblock %}
     </div>
-
 </div>
-
 
 {% block post %} {% endblock %}
 
