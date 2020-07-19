@@ -6,30 +6,36 @@
 
 <div class="flex pt-10 items-start">
 <!-- left part -->
-{% for x in all_projects %}
-     {{ x.id }}
-<div class="flex-none w-56">
+
+<div class="flex-none w-56 z-1">
+  {% for x in all_projects %}
           <ul class="list-none">
               <li>
-                  <a href="" class="hover:underline text-lg" onmouseover="show()" onmouseout="hide()">{{ x.title }}</a>
+                  <a href="" class="hover:underline text-lg" onmouseover="show({{x.id}})" onmouseout="hide({{x.id}})">{{ x.title }}</a>
               </li>
           </ul>
+  {% endfor %}
+
 </div>
+
  <!-- right part -->
-<div class="flex-1">
-    <img src="{{ x.image.url }}" id="{{ x.id }}" style="visibility:hidden;" class="bg-cover">
-</div>
+<div class="flex-1 z-50">
+  {% for z in all_projects %}
+
+    <img src="{{ z.image.url }}" id="{{ z.id }}" style="visibility:hidden;" class="bg-contain absolute top-0 right-0  max-w-3xl ">
     {% endfor %}
+
 </div>
+
+</div>
+
 <!-- javascript -->
 <script>
-    var x=document.getElementById('2')
-
-    function show(){
-                    x.style.visibility='visible';
+    function show(img){
+                    document.getElementById(img).style.visibility='visible';
                     }
-    function hide(){
-                    x.style.visibility='hidden';
+    function hide(img){
+                    document.getElementById(img).style.visibility='hidden';
                     }
 </script>
 
