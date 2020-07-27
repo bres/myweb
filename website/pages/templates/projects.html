@@ -1,45 +1,38 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Welcome to bresgeorge.com{% endblock %}
-
 {% block content %}
 
-<div class="flex pt-10 items-start">
+<div class="flex pt-10 items-start justify-start">
 <!-- left part -->
-
-<div class="flex-none w-56 z-1">
-  {% for x in all_projects %}
-          <ul class="list-none">
-              <li>
-                  <a href="" class="hover:underline text-lg" onmouseover="show({{x.id}})" onmouseout="hide({{x.id}})">{{ x.title }}</a>
-              </li>
-          </ul>
-  {% endfor %}
-
-</div>
-
- <!-- right part -->
-<div class="flex-1 z-50">
-  {% for z in all_projects %}
-
-    <img src="{{ z.image.url }}" id="{{ z.id }}" style="visibility:hidden;" class="bg-contain absolute top-0 right-0  max-w-3xl ">
+  <div class="flex-none w-56">
+    {% for x in all_projects %}
+        <ul class="list-none">
+            <li>
+                <a href="" class="hover:underline text-lg" onmouseover="show({{x.id}})" onmouseout="hide({{x.id}})">{{ x.title }}</a>
+            </li>
+        </ul>
     {% endfor %}
-
-</div>
+  </div>
+<!-- right part -->
+  <div class="flex-1">
+    {% for z in all_projects %}
+      <img src="{{ z.image.url }}" id="{{ z.id }}" style="display:none;" class="flex bg-contain max-w-xl">
+    {% endfor %}
+  </div>
 
 </div>
 
 <!-- javascript -->
 <script>
     function show(img){
-                    document.getElementById(img).style.visibility='visible';
+                    document.getElementById(img).style.display='block';
                     }
     function hide(img){
-                    document.getElementById(img).style.visibility='hidden';
+                    document.getElementById(img).style.display='none';
                     }
 </script>
 
 {% endblock %}
-
 </body>
 </html>
