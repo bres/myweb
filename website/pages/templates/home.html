@@ -4,7 +4,7 @@
 
 {% block content %}
 <!-- right part / main subject-->
-<div class="lg:pt-10 leading-relaxed tracking-wider text-md">
+<div class="pt-2 lg:pt-8 leading-relaxed tracking-wider text-md">
     {% if all_items %}
             {% for x in all_items %}
                  {% autoescape off %}
@@ -17,7 +17,7 @@
 
 {% block post %}
 <!-- left & right -->
-<div class="lg:flex mt-24  ">
+<div class="lg:flex mt-24">
 <!-- left part -->
     <div class="flex-none lg:w-1/4 ">
         <p class="lg:fixed text-lg pb-4">The Latest Post</p>
@@ -28,14 +28,14 @@
         <div class="pb-20 max-w-lg ">
             <div class="flex justify-between items-start pb-1">
                 <span class="font-light">{{ latest_post.pub_date }}</span>
-                <a class="px-2 text-blue-600" href="#">#{{ latest_post.tags }}</a>
+                <a class="px-2 text-green-500" href="#">#{{ latest_post.tags }}</a>
             </div>
             <div>
                 <img src="{{ latest_post.image.url }}" class="bg-cover rounded-lg">
             </div>
             <div class="mt-2">
-                <a class="text-lg font-semibold " href="#">{{ latest_post.title  }}</a>
-                <p class="mt-2  leading-relaxed ">{{ latest_post.body|truncatewords:15  }}</p>
+                <a class="text-lg font-semibold" href="#">{{ latest_post.title  }}</a>
+                <p class="mt-2 leading-relaxed">{{ latest_post.body|truncatewords:15  }}</p>
             </div>
         </div>
     {% endif %}
