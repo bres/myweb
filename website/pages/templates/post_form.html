@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Welcome to zwiwi.com{% endblock %}
+
+{% block content %}
+<!-- right part / main subject-->
+<div class="pt-2 lg:pt-8 leading-relaxed tracking-wider text-md">
+     
+
+
+<form action="{% url 'createPost' %}" method='POST' enctype="multipart/form-data">{% csrf_token %}
+    
+{{ form.as_p }}
+
+<input type='submit' value='submit'/>
+
+</form>    
+
+
+
+
+ 
+
+</div>
+
+{% endblock %}
+ 
+
+
+
+
+
+
+
+</body>
+</html>
