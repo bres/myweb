@@ -10,7 +10,7 @@
      <div class="flex flex-col pb-20 max-w-lg">
         <div class="flex justify-between items-baseline">
             <span class="font-light py-1">{{ x.pub_date }}</span>
-            <a class="px-2 py-1 text-green-600" href="#">#{{ x.tags }} </a>
+            <a class="px-2 py-1 text-indigo-500" href="#">#{{ x.tags }} </a>
         </div>
         <div>
  
@@ -21,7 +21,7 @@
             <p class="mt-2 text-gray-500">{{ x.body|truncatewords:20 }}</p>
         </div>
         <div class="flex justify-between items-center mt-4">
-            <a class="text-green-500 hover:underline" href="#">Read more</a>
+            <a class="text-indigo-500 hover:underline" href="#">Read more</a>
         </div>
     </div>
     {% endfor%}
@@ -34,18 +34,18 @@
 <!-- sidebar fixed on large screens and hidden on small -->
 <div class="hidden lg:block fixed top-0 mt-64 pt-32 ">
     <p class="font-medium text-xl pb-2">The Tags</p>
-    <ul class="text-green-500 ">
+    <ul class="text-indigo-500 ">
         <li>
-            <a class=" hover:underline pr-2" href="{% url 'projects' %}">#Web Design</a>
+            <a class=" hover:underline pr-2" href="{% url 'projects_nav' %}">#Web Design</a>
         </li>
          <li>
-             <a class="hover:underline pr-2" href="{% url 'projects' %}">#Machine Learnig</a>
+             <a class="hover:underline pr-2" href="{% url 'projects_nav' %}">#Machine Learnig</a>
         </li>
          <li>
-             <a class=" hover:underline pr-2" href="{% url 'projects' %}">#The Sea</a>
+             <a class=" hover:underline pr-2" href="{% url 'projects_nav' %}">#The Sea</a>
         </li>
          <li >
-             <a class=" hover:underline pr-2" href="{% url 'projects' %}">#Apps</a>
+             <a class=" hover:underline pr-2" href="{% url 'projects_nav' %}">#Apps</a>
         </li>
     </ul>
 </div>

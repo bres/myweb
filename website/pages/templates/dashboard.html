@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 lg:mx-16 mx-6 font-serif tracking-wide antialiased">
+
+<!-- left & right -->
+<div class="mt-12 lg:flex">
+<!-- left part -->
+    <div class="lg:w-1/4 ">
+        <div class="lg:fixed">
+            <p class="text-2xl pt-1 font-mono font-semibold"><a class="text-indigo-500" href="{% url 'home_nav' %}">Zwiwi</a></p>
+            <p class="text-sm  px-8 font-mono pt-1">the Dashboard</p>
+             <ul class="flex lg:flex-col mt-2 font-semibold">
+                <li class="pr-2 pt-2"><a class="text-indigo-500 hover:underline text-md" href="{% url 'projects_nav' %}">Home data</a></li>
+                <li class="pr-2 pt-2"><a class="text-indigo-500 hover:underline text-md" href="{% url 'blog_nav' %}">Blog data</a></li>
+                <li class="pr-2 pt-2"><a class="text-indigo-500 hover:underline text-md" href="{% url 'projects_nav' %}">Projects data</a></li>
+                <li class="pr-2 pt-2"><a class="text-indigo-500 hover:underline text-md" href="{% url 'contact_nav' %}">Contact data</a></li>
+            </ul>
+        </div>
+    </div>
+
+<!-- right part -->
+<div class="pt-2 lg:pt-8 flex flex-col mb-4 ">
+
+
+<div class="lg:w-3/4 pt-2 ">
+<!-- component -->
+
+<h1 class="text-lg font-semibold text-indigo-500 font-mono py-2">List of blog posts</h1>
+<!-- component -->
+<table class="border-collapse w-full">
+    <thead>
+        <tr>
+            <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Title</th>
+            <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Body</th>
+            <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Pub_date</th>
+            <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Tags</th>
+            <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Image</th>
+            <th class="p-3 font-bold uppercase bg-indigo-600 text-white border border-gray-300 hidden lg:table-cell">Actions</th>
+
+        </tr>
+    </thead>
+    <tbody>
+    	{% for item in context %}
+
+        <tr class="bg-white lg:hover:bg-indigo-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
+            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
+                <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Title</span>
+                {{item.title}}
+
+            </td>
+            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Body</span>
+                {{item.body}}
+
+            </td>
+          	<td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Pub_date</span>
+                {{item.pub_date}}
+          	</td>
+          	<td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Tags</span>
+                {{item.tags}}
+          	</td>
+          	<td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Image</span>
+                  <img src="{{item.image.url}}" alt="Girl in a jacket" width="400" height="auto">
+
+          	</td>
+            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Actions</span>
+                <a href="#" class="text-indigo-400 hover:text-indigo-600 underline">Edit</a>
+                <a href="#" class="text-indigo-400 hover:text-indigo-600 underline pl-6">Remove</a>
+            </td>
+         </tr>
+{% endfor %}
+</tbody>
+</table>
+
+
+</div>
+</body>
+</html>
