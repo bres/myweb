@@ -1,26 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Welcome to bresgeorge.com{% endblock %}
+{% block title %}Welcome to zwiwi.com{% endblock %}
 
 {% block content %}
 <!-- right part -->
-<div class="pt-10 flex flex-col mb-4">
+<div class="pt-2 lg:pt-8 flex flex-col mb-4 ">
 {% if all_posts %}
     {% for x in all_posts %}
-     <div class="flex flex-col pb-20 max-w-2xl ">
-        <div class="flex justify-between items-center">
-            <span class="font-light">{{ x.pub_date }}</span>
-            <a class="px-2 py-1 text-red-700" href="#">#{{ x.tags }} </a>
+     <div class="flex flex-col pb-20 max-w-lg">
+        <div class="flex justify-between items-baseline">
+            <span class="font-light py-1">{{ x.pub_date }}</span>
+            <a class="px-2 py-1 text-green-600" href="#">#{{ x.tags }} </a>
         </div>
         <div>
-            <img src="{{x.image.url}}" class="bg-contain ">
-        </div>
+ 
+            <img src="{{x.image.url}}" class="bg-cover rounded-lg">
+         </div>
         <div class="mt-2">
             <a class="text-xl text-gray-700 font-bold hover:text-gray-600" href="#">{{ x.title }}</a>
-            <p class="mt-2 text-gray-600">{{ x.body|truncatewords:20 }}</p>
+            <p class="mt-2 text-gray-500">{{ x.body|truncatewords:20 }}</p>
         </div>
         <div class="flex justify-between items-center mt-4">
-            <a class="text-red-700 hover:underline" href="#">Read more</a>
+            <a class="text-green-500 hover:underline" href="#">Read more</a>
         </div>
     </div>
     {% endfor%}
@@ -31,20 +32,20 @@
 
 {% block sidebar%}
 <!-- sidebar fixed on large screens and hidden on small -->
-<div class="hidden sm:block fixed top-0 mt-64 pt-32 ">
+<div class="hidden lg:block fixed top-0 mt-64 pt-32 ">
     <p class="font-medium text-xl pb-2">The Tags</p>
-    <ul>
-        <li class="text-red-700 ">
-            <a class="text-red-700 hover:underline pr-2 " href="{% url 'projects' %}">#Web Design</a>
+    <ul class="text-green-500 ">
+        <li>
+            <a class=" hover:underline pr-2" href="{% url 'projects' %}">#Web Design</a>
         </li>
-         <li class="text-red-700 ">
-             <a class="text-red-700 hover:underline pr-2 " href="{% url 'projects' %}">#Machine Learnig</a>
+         <li>
+             <a class="hover:underline pr-2" href="{% url 'projects' %}">#Machine Learnig</a>
         </li>
-         <li class="text-red-700 ">
-             <a class="text-red-700 hover:underline pr-2 l" href="{% url 'projects' %}">#The Sea</a>
+         <li>
+             <a class=" hover:underline pr-2" href="{% url 'projects' %}">#The Sea</a>
         </li>
-         <li class="text-red-700 ">
-             <a class="text-red-700 hover:underline pr-2 " href="{% url 'projects' %}">#Apps</a>
+         <li >
+             <a class=" hover:underline pr-2" href="{% url 'projects' %}">#Apps</a>
         </li>
     </ul>
 </div>

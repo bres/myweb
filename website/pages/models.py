@@ -9,12 +9,12 @@ class Post(models.Model):
     title=models.CharField(max_length=200)
     body=models.TextField()
     pub_date=models.DateField()
-    image=models.ImageField(upload_to='images/',blank=True)
+    image=models.ImageField(upload_to='images/',null=True, blank=True )
     tags=models.CharField(max_length=100 ,blank=True)
 
 class Project(models.Model):
     title=models.CharField(max_length=200)
-    image=models.ImageField(upload_to='images/',blank=True)
+    image=models.ImageField(upload_to='images/',null=True, blank=True  )
     pub_date=models.DateField()
     body=models.TextField(blank=True)
  
