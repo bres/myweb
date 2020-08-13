@@ -12,7 +12,7 @@
 <!-- left & right -->
 <div class="mt-12 lg:flex">
 <!-- left part -->
-    <div class="lg:w-1/4 ">
+    <div class="lg:w-1/5 ">
         <div class="lg:fixed">
             <p class="text-2xl pt-1 font-mono font-semibold"><a class="text-indigo-500" href="{% url 'home_nav' %}">Zwiwi</a></p>
             <p class="text-sm  px-8 font-mono pt-1">the Dashboard</p>
@@ -24,14 +24,24 @@
             </ul>
         </div>
     </div>
-
+<div class="lg:w-4/5 pt-2 lg:mt-16">
 <!-- right part -->
-<div class="pt-2 lg:pt-8 flex flex-col mb-4 ">
+<h1 class="text-lg font-semibold text-indigo-500 font-mono py-2">Create post</h1>
+
+<form method="post" enctype="multipart/form-data">
+
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit"/>
+
+</form>
 
 
-<div class="lg:w-3/4 pt-2 ">
+
+
+
 <!-- component -->
-
+<div class="pt-2 lg:pt-8">
 <h1 class="text-lg font-semibold text-indigo-500 font-mono py-2">List of blog posts</h1>
 <!-- component -->
 <table class="border-collapse w-full">
@@ -50,30 +60,30 @@
     	{% for item in context %}
 
         <tr class="bg-white lg:hover:bg-indigo-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
-            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
+            <td class="w-full lg:w-40 p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                 <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Title</span>
                 {{item.title}}
 
             </td>
-            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+            <td class="w-full lg:w-64 p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
                 <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Body</span>
-                {{item.body}}
+                {{item.body|truncatewords:12}}
 
             </td>
-          	<td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+          	<td class="w-full lg:w-40 p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
                 <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Pub_date</span>
                 {{item.pub_date}}
           	</td>
-          	<td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+          	<td class="w-full lg:w-40 p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
                 <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Tags</span>
                 {{item.tags}}
           	</td>
           	<td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
                 <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Image</span>
-                  <img src="{{item.image.url}}" alt="Girl in a jacket" width="400" height="auto">
+                  <img src="{{item.image.url}}" alt="Girl in a jacket" width="300" height="auto">
 
           	</td>
-            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+            <td class="w-full lg:w-40 p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
                 <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Actions</span>
                 <a href="#" class="text-indigo-400 hover:text-indigo-600 underline">Edit</a>
                 <a href="#" class="text-indigo-400 hover:text-indigo-600 underline pl-6">Remove</a>
@@ -83,7 +93,7 @@
 </tbody>
 </table>
 
-
+</div>
 </div>
 </body>
 </html>
