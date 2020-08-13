@@ -29,8 +29,10 @@ def createPost(request):
         form = PostForm(request.POST or None,request.FILES or None)
         if form.is_valid():
             form.save()
-            return redirect('/')
-        return render(request,"newtask.html",{'form':form})
+            form = PostForm()
+            return redirect('createPost')
+        context=Post.objects.all
+        return render(request,"dashboard.html",{'form':form,'context':context})
 
 def dashboard(request):
     context=Post.objects.all

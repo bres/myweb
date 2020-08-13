@@ -19,11 +19,11 @@
 <!-- left & right -->
 <div class="lg:flex mt-24">
 <!-- left part -->
-    <div class="flex-none lg:w-1/4 ">
+    <div class="flex-none lg:w-1/5 ">
         <p class="lg:fixed text-lg pb-4">The Latest Post</p>
     </div>
 <!-- right part -->
-    <div class="lg:w-3/4 ">
+    <div class="lg:w-4/5 ">
     {% if latest_post %}
         <div class="pb-20 max-w-lg ">
             <div class="flex justify-between items-start pb-1">
@@ -32,7 +32,7 @@
             </div>
             <div>
                   <img src="{{ latest_post.image.url }}" class="bg-cover rounded-lg">
-                                 
+
             </div>
             <div class="mt-2">
                 <a class="text-lg font-semibold" href="#">{{ latest_post.title  }}</a>
