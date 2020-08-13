@@ -3,16 +3,18 @@
 {% block title %}Welcome to zwiwi.com{% endblock %}
 
 {% block content %}
+<!--
 <h1>Edit newtask</h1>
+<div class="bg-green-500">
+<form method="post" enctype="multipart/form-data" class=" ">
 
-<form method="post" enctype="multipart/form-data">
-  
 {% csrf_token %}
-{{ form.as_p }}
+{{ form  }}
 <input type="submit" value="Submit"/>
 
 </form>
-
+</div>
+-->
 {% endblock %}
 
 
