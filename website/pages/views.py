@@ -17,22 +17,9 @@ def projects(request):
     return render(request,"projects.html",{'all_projects':all_projects})
 
 def blog(request):
-    all_posts=Post.objects.order_by('-id') 
+    all_posts=Post.objects.order_by('-id')
     return render(request,"blog.html",{'all_posts':all_posts})
 
 
 def contact(request):
     return render(request,"contact.html",{})
- 
-def createPost(request):
-    if request.method =="POST":
-        form = PostForm(request.POST or None,request.FILES or None)
-        if form.is_valid():
-            form.save()
-            return redirect('createPost')
-    else:
-        form = PostForm()
-
-    return render(request,"post_form.html",
-                 {'form':form}
-                 ) 

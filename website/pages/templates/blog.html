@@ -4,16 +4,16 @@
 
 {% block content %}
 <!-- right part -->
-<div class="pt-2 lg:pt-8 flex flex-col mb-4 ">
+<div class=" flex flex-col mb-4 ">
 {% if all_posts %}
     {% for x in all_posts %}
      <div class="flex flex-col pb-20 max-w-lg">
         <div class="flex justify-between items-baseline">
             <span class="font-light py-1">{{ x.pub_date }}</span>
-            <a class="px-2 py-1 text-green-600" href="#">#{{ x.tags }} </a>
+            <a class="px-2 py-1 text-indigo-600" href="#">#{{ x.tags }} </a>
         </div>
         <div>
- 
+
             <img src="{{x.image.url}}" class="bg-cover rounded-lg">
          </div>
         <div class="mt-2">
@@ -21,7 +21,7 @@
             <p class="mt-2 text-gray-500">{{ x.body|truncatewords:20 }}</p>
         </div>
         <div class="flex justify-between items-center mt-4">
-            <a class="text-green-500 hover:underline" href="#">Read more</a>
+            <a class="text-indigo-600 hover:underline" href="#">Read more</a>
         </div>
     </div>
     {% endfor%}
@@ -34,7 +34,7 @@
 <!-- sidebar fixed on large screens and hidden on small -->
 <div class="hidden lg:block fixed top-0 mt-64 pt-32 ">
     <p class="font-medium text-xl pb-2">The Tags</p>
-    <ul class="text-green-500 ">
+    <ul class="text-indigo-600 ">
         <li>
             <a class=" hover:underline pr-2" href="{% url 'projects' %}">#Web Design</a>
         </li>
