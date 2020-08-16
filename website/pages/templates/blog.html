@@ -5,23 +5,23 @@
 {% block content %}
 <!-- right part -->
 <div class=" flex flex-col mb-4 ">
-{% if all_posts %}
-    {% for x in all_posts %}
+{% if object_list %}
+    {% for post in object_list %}
      <div class="flex flex-col pb-20 max-w-lg">
         <div class="flex justify-between items-baseline">
-            <span class="font-light py-1">{{ x.pub_date }}</span>
-            <a class="px-2 py-1 text-indigo-600" href="#">#{{ x.tags }} </a>
+            <span class="font-light py-1">{{ post.pub_date }}</span>
+            <a class="px-2 py-1 text-indigo-600" href="#">#{{ post.tags }} </a>
         </div>
         <div>
 
-            <img src="{{x.image.url}}" class="bg-cover rounded-lg">
+            <img src="{{post.image.url}}" class="bg-cover rounded-lg">
          </div>
         <div class="mt-2">
-            <a class="text-xl text-gray-700 font-bold hover:text-gray-600" href="#">{{ x.title }}</a>
-            <p class="mt-2 text-gray-500">{{ x.body|truncatewords:20 }}</p>
+            <a class="text-xl text-gray-700 font-bold hover:text-gray-600" href="">{{ post.title }}</a>
+            <p class="mt-2 text-gray-500">{{ post.body|truncatewords:20 }}</p>
         </div>
         <div class="flex justify-between items-center mt-4">
-            <a class="text-indigo-600 hover:underline" href="#">Read more</a>
+            <a class="text-indigo-600 hover:underline" href="{% url 'ArticleDetail' post.pk %}">Read more</a>
         </div>
     </div>
     {% endfor%}

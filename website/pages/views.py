@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import *
 from .forms import PostForm
+from django.views.generic import ListView,DetailView
 # Create your views here.
 
 def home(request):
@@ -16,9 +17,13 @@ def projects(request):
     all_projects=Project.objects.all
     return render(request,"projects.html",{'all_projects':all_projects})
 
-def blog(request):
-    all_posts=Post.objects.order_by('-id')
-    return render(request,"blog.html",{'all_posts':all_posts})
+class blog(ListView):
+    model=Post
+    template_name='blog.html'
+
+class ArticleDetail(DetailView):
+    model=Post
+    template_name='article_details.html'
 
 
 def contact(request):
