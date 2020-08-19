@@ -1,24 +1,30 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Welcome to zwiwi.com{% endblock %}
+{% block title %}{{post.Blog_title_tag }}{% endblock %}
 
 {% block content %}
 <!-- right part -->
-<div class=" flex flex-col mb-4 ">
-       <div class="flex flex-col pb-20 max-w-lg">
+<div class=" flex flex-col">
+       <div class="flex flex-col max-w-2xl">
         <div class="flex justify-between items-baseline">
             <span class="font-light py-1">{{ post.pub_date }}</span>
             <a class="px-2 py-1 text-indigo-600" href="#">#{{ post.tags }} </a>
         </div>
         <div>
-
-            <img src="{{post.image.url}}" class="bg-cover rounded-lg">
-         </div>
-        <div class="mt-2">
-            <a class="text-xl text-gray-700 font-bold hover:text-gray-600" href="{% url 'ArticleDetail' post.pk %}">{{ post.title }}</a>
-            <p class="mt-2 text-gray-500">{{ post.body}}</p>
+            <img src="{{ post.image.url }}" class="bg-cover rounded-lg">
         </div>
+        <div class="mt-2">
+            <a class="text-lg font-semibold hover:text-gray-600" href="{% url 'ArticleDetail' post.pk %}">{{ post.title }}</a>
+            {% autoescape off %}
+            <p class="mt-2 text-gray-800">{{ post.body}}|linebreaks</p>
+            {% endautoescape %}
 
+        </div>
     </div>
+ </div>
+ <div class="my-4">
+   <h1 class="">
+     <a class="text-indigo-600 hover:underline" href="{% url 'home'%}">Back To Home</a>
+   </h1>
  </div>
 {% endblock %}

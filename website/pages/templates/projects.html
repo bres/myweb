@@ -1,21 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Welcome to bresgeorge.com{% endblock %}
+{% block title %}Welcome to {% endblock %}
 {% block content %}
 
-<div class="flex pt-10 items-start justify-start">
+<div class="flex items-start justify-start">
 <!-- left part -->
-  <div class="flex-none w-56">
+  <div class="flex-none w-1/3">
     {% for x in all_projects %}
-        <ul class="list-none">
+        <ul class="list-disc">
             <li>
-                <a href="" class="hover:underline text-lg" onmouseover="show({{x.id}})" onmouseout="hide({{x.id}})">{{ x.title }}</a>
+                <a href="" class="hover:underline text-3xl font-semibold text-indigo-600" onmouseover="show({{x.id}})" onmouseout="hide({{x.id}})">{{ x.title }}</a>
             </li>
         </ul>
     {% endfor %}
   </div>
 <!-- right part -->
-  <div class="flex-1">
+  <div class="flex-1 w-2/3">
     {% for z in all_projects %}
       <img src="{{ z.image.url }}" id="{{ z.id }}" style="display:none;" class="flex bg-contain max-w-xl">
     {% endfor %}

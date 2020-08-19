@@ -2,12 +2,12 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import *
 from .forms import PostForm
-from django.views.generic import ListView,DetailView
+from django.views.generic import ListView,DetailView,CreateView
 # Create your views here.
 
 def home(request):
     all_items=Landing_content.objects.all
-    latest_post = Post.objects.last()
+    latest_post = Post.objects.first()
     return render(request,"home.html",{'all_items':all_items,'latest_post':latest_post})
 
 def about(request):
@@ -25,6 +25,11 @@ class ArticleDetail(DetailView):
     model=Post
     template_name='article_details.html'
 
+class AddPostView(CreateView):
+    model=Post
+    form_class=PostForm
+    template_name='add_post.html'
+    #fields='__all__'
 
 def contact(request):
     return render(request,"contact.html",{})

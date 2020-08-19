@@ -1,10 +1,10 @@
- {% extends 'base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block title %}Welcome to zwiwi.com{% endblock %}
 
 {% block content %}
 <!-- right part / main subject-->
-<div class="mt-2 tracking-wide text-lg leading-relaxed ">
+<div class="mt-2 tracking-wide text-lg leading-relaxed text-gray-800">
     {% if all_items %}
             {% for x in all_items %}
                  {% autoescape off %}
@@ -35,9 +35,14 @@
 
             </div>
             <div class="mt-2">
-                <a class="text-lg font-semibold" href="#">{{ latest_post.title  }}</a>
+                <p class="text-lg font-semibold">{{ latest_post.title  }}</p>
+                {% autoescape off %}
+                <p class="mt-2 text-gray-800 leading-relaxed">{{ latest_post.body|truncatewords:20|linebreaks  }}</p>
+                {% endautoescape %}
 
-                <p class="mt-2 leading-relaxed">{{ latest_post.body|truncatewords:15  }}</p>
+            </div>
+            <div class="flex justify-between items-center my-4">
+                <a class="text-indigo-600 hover:underline" href="{% url 'ArticleDetail' latest_post.pk %}">Read more</a>
             </div>
         </div>
     {% endif %}
