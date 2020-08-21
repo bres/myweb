@@ -8,12 +8,12 @@ class PostForm(forms.ModelForm):
         model  = Post
         fields = '__all__'
         widgets = {
-            'tags':forms.TextInput(attrs={'class':'py-2 my-2 w-full border border-indigo-500'}),
-            'title':forms.TextInput(attrs={'class':'py-2 my-2 w-full border border-indigo-500'}),
-            'Blog_title_tag':forms.TextInput(attrs={'class':'py-2 my-2 w-full border border-indigo-500'}),
-            'image':forms.TextInput(attrs={'class':'py-2 my-2 w-full border border-indigo-500'}),
-            'pub_date':forms.TextInput(attrs={'class':'py-2 my-2 w-full border border-indigo-500'}),
-            'body':forms.Textarea(attrs={'class':'py-2 my-2 w-full border border-indigo-500'}),
-            'author':forms.Select(attrs={'class':'py-2 my-2 w-full border border-indigo-500'})
+            'tags':forms.TextInput(attrs={'class':'py-2 my-2 w-full border border-indigo-300 rounded','placeholder':'Insert the Tag category'}),
+            'title':forms.TextInput(attrs={'class':'py-2 my-2 w-full border border-indigo-300 rounded','placeholder':'Insert the Title of Post'}),
+            'Blog_title_tag':forms.TextInput(attrs={'class':'pt-2 my-2 w-full border border-indigo-300 rounded','placeholder':'Insert the Title Tag for page'}),
+            #'image':forms.ImageField(),
+            'pub_date':forms.TextInput(attrs={'class':'py-2 my-2 w-full border border-indigo-300 rounded','placeholder':'2050-12-31'}),
+            'body':forms.Textarea(attrs={'class':'py-2 my-2 w-full border border-indigo-300 rounded','rows':3, 'cols': 100,'placeholder':'Insert the main text' }),
+            'author':forms.Select(attrs={'class':'pt-2 mt-2 mb-10 w-full border border-indigo-300 rounded','placeholder':'Insert the name of the Author'})
 
         }

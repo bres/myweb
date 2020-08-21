@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Delete a blog post{% endblock %}
+
+{% block content %}
+<!-- right part -->
+ <h1 class="text-lg mt-2 mb-6 font-light font-mono underline">Delete a Blog Post</h1>
+
+ <h1 class="text-lg mt-2 mb-6 font-light font-mono underline">Delete: {{ post.title}}</h1>
+
+<form method="POST" enctype="multipart/form-data" class="max-w-md font-mono">
+  {% csrf_token %}
+ <button class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold my-6 py-2 px-4 rounded">Delete post</button>
+
+</form>
+
+
+
+
+{% endblock %}

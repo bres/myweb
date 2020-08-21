@@ -10,11 +10,11 @@ class Landing_content(models.Model):
 class Post(models.Model):
     tags=models.CharField(max_length=100 ,blank=True)
     title=models.CharField(max_length=200)
-    Blog_title_tag=models.CharField(max_length=200,default="The Blog Title Tag")
-    image=models.ImageField(upload_to='images/',null=True, blank=True  )
-    pub_date=models.DateField()
+    Blog_title_tag=models.CharField(max_length=200)
+    pub_date=models.DateTimeField(auto_now=True, auto_now_add=False)
     body=models.TextField(blank=True)
     author=models.ForeignKey(User,on_delete=models.CASCADE,blank=True,null=True)
+    image=models.ImageField(upload_to='images/',null=True, blank=True  )
 
     class Meta:
        ordering = ['-pub_date']
@@ -26,7 +26,7 @@ class Project(models.Model):
     title=models.CharField(max_length=200)
     Project_title_tag=models.CharField(max_length=200,default="The Project Title Tag")
     image=models.ImageField(upload_to='images/',null=True, blank=True  )
-    pub_date=models.DateField()
+    pub_date=models.DateField(auto_now=True)
     body=models.TextField(blank=True)
     author=models.ForeignKey(User,on_delete=models.CASCADE,blank=True,null=True)
 
