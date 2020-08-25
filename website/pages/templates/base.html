@@ -6,24 +6,34 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body class="bg-white lg:mx-16 mx-6 font-serif tracking-wide antialiased">
+<body class="bg-gray lg:mx-16 mx-10 font-serif tracking-wide antialiased">
 
 
 <!-- left & right -->
-<div class="mt-12  ">
+<div class="mt-20">
   <div class="lg:fixed">
   <p class="text-3xl pt-1 font-mono font-semibold"><a class="text-indigo-600" href="{% url 'home' %}">Zwiwi</a></p>
-  <p class="text-sm  px-8 font-mono pt-0">..always with a smile</p>
+  <div class="flex">
+    <p class='text-sm  px-8 font-mono pt-0'>..always with a smile</p>
+   </div>
+
 </div>
   <div class="pt-24 lg:flex">
       <!-- left part -->
       <div class="lg:w-1/4  ">
           <div class="lg:fixed">
                <ul class="flex lg:flex-col font-semibold mt-2 font-mono">
-                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg " href="{% url 'projects' %}">Projects</a></li>
-                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg " href="{% url 'blog' %}">Blog</a></li>
-                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg " href="{% url 'projects' %}">Discord</a></li>
-                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg " href="{% url 'contact' %}">Contact</a></li>
+               {% if user.is_authenticated %}
+                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'add_post' %}">Add post</a></li>
+                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'logout' %}">Logout</a></li>
+                  {% else %}
+                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'register' %}">Register</a></li>
+                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'login' %}">Login</a></li>
+                  {% endif %}
+                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'projects' %}">Projects</a></li>
+                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'blog' %}">Blog</a></li>
+                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'projects' %}">Discord</a></li>
+                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'contact' %}">Contact</a></li>
               </ul>
           </div>
       </div>

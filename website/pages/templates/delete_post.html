@@ -3,6 +3,9 @@
 {% block title %} Delete a blog post{% endblock %}
 
 {% block content %}
+
+{% if user.is_authenticated %}
+
 <!-- right part -->
  <h1 class="text-lg mt-2 mb-6 font-light font-mono underline">Delete a Blog Post</h1>
 
@@ -13,8 +16,11 @@
  <button class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold my-6 py-2 px-4 rounded">Delete post</button>
 
 </form>
+{% else %}
 
+<p class="text-2xl text-indigo-500 font-semibold">you are not an authorized user </p>
 
+{% endif %}
 
 
 {% endblock %}

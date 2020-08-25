@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Register{% endblock %}
+
+{% block content %}
+<!-- right part -->
+ <h1 class="text-lg mt-2 mb-6 font-light font-mono underline">Register..</h1>
+
+
+<form method="POST" enctype="multipart/form-data" class="max-w-md font-mono">
+  {% csrf_token %}
+  {{form.as_p}}
+<button class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold my-6 py-2 px-4 rounded">Register</button>
+
+</form>
+
+
+
+
+{% endblock %}

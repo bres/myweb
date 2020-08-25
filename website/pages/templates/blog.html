@@ -13,16 +13,19 @@
             <a class="px-2 py-1 text-indigo-600" href="#">#{{ post.tags }} </a>
         </div>
         <div>
-
             <img src="{{post.image.url}}" class="bg-cover rounded-lg">
          </div>
 
         <div class="mt-2 flex justify-between ">
             <p class="text-lg font-semibold" href="">{{ post.title }}</p>
-            <p>
-            <a href="{% url 'ArticleUpdate' post.pk %}" class="text-xs hover:underline text-indigo-600 font-mono pl-6 ">(Update Post)</a>
-            <span class="text-black text-xs px-1">/</span>
-            <a href="{% url 'ArticleDelete' post.pk %}" class="text-xs hover:underline text-indigo-600 font-mono">(Delete Post)</a>
+
+            {% if user.is_authenticated %}
+            <div>
+              <a href="{% url 'ArticleUpdate' post.pk %}" class="text-xs hover:underline text-indigo-600 font-mono pl-6 ">(Update Post)</a>
+              <span class="text-black text-xs px-1">/</span>
+              <a href="{% url 'ArticleDelete' post.pk %}" class="text-xs hover:underline text-indigo-600 font-mono">(Delete Post)</a>
+            </div>
+            {% endif %}
         </div>
         <p class="mt-2 text-lg text-gray-800">{{ post.body|truncatewords:20 }}</p>
         <div class="flex justify-between items-center my-4">

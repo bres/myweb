@@ -7,6 +7,17 @@ class Landing_content(models.Model):
     body=models.TextField()
     pub_date=models.DateField()
 
+class Category(models.Model):
+    name=models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+    
+    def get_absolute_url(self):
+        return reverse('home')
+
+
+
 class Post(models.Model):
     tags=models.CharField(max_length=100 ,blank=True)
     title=models.CharField(max_length=200)
@@ -15,6 +26,7 @@ class Post(models.Model):
     body=models.TextField(blank=True)
     author=models.ForeignKey(User,on_delete=models.CASCADE,blank=True,null=True)
     image=models.ImageField(upload_to='images/',null=True, blank=True  )
+    category=models.CharField(max_length=200,default="Uncategorized")
 
     class Meta:
        ordering = ['-pub_date']
