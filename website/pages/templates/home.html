@@ -27,8 +27,8 @@
     {% if latest_post %}
         <div class="pb-20 max-w-lg ">
             <div class="flex justify-between items-start pb-1">
-                <span class="font-light">{{ latest_post.pub_date }}</span>
-                <a class="text-indigo-600" href="#">#{{ latest_post.tags }} </a></span></a>
+                <span class="font-light">{{ latest_post.category  }}</span>
+                <a class="text-indigo-600" href="#">#{{ latest_post.category }} </a></span></a>
             </div>
             <div>
                   <img src="{{ latest_post.image.url }}" class="bg-cover rounded-lg">

@@ -19,6 +19,15 @@ def projects(request):
     all_projects=Project.objects.all
     return render(request,"projects.html",{'all_projects':all_projects})
 
+
+
+class AddCategoryView(CreateView):
+    model=Category
+    #form_class=PostForm
+    template_name='add_category.html'
+    fields='__all__'
+
+
 class blog(ListView):
     model=Post
     template_name='blog.html'

@@ -12,7 +12,7 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
-    
+
     def get_absolute_url(self):
         return reverse('home')
 
@@ -25,8 +25,8 @@ class Post(models.Model):
     pub_date=models.DateTimeField(auto_now=True, auto_now_add=False)
     body=models.TextField(blank=True)
     author=models.ForeignKey(User,on_delete=models.CASCADE,blank=True,null=True)
-    image=models.ImageField(upload_to='images/',null=True, blank=True  )
     category=models.CharField(max_length=200,default="Uncategorized")
+    image=models.ImageField(upload_to='images/',null=True, blank=True  )
 
     class Meta:
        ordering = ['-pub_date']
