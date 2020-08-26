@@ -38,10 +38,10 @@
 {% endblock %}
 
 
-{% block sidebar%}
-<!-- sidebar fixed on large screens and hidden on small -->
-<div class="hidden lg:block fixed top-0 mt-64 pt-48 ">
-    <p class="font-medium text-xl pb-2">The Tags</p>
+{% block sidebar %}
+<!-- sidebar fixed on large screens and hidden on small-->
+<div class="hidden lg:block fixed bottom-0 mb-32 ">
+    <p class="font-medium text-xl pb-2 ">The Tags</p>
     <ul class="text-indigo-600 ">
         <li>
             <a class=" hover:underline pr-2" href="{% url 'projects' %}">#Web Design</a>
@@ -58,9 +58,3 @@
     </ul>
 </div>
 {% endblock%}
-
-
-
-
-</body>
-</html>

@@ -10,7 +10,7 @@
 
 
 <!-- left & right -->
-<div class="mt-20">
+<div class="mt-16">
   <div class="lg:fixed">
   <p class="text-3xl pt-1 font-mono font-semibold"><a class="text-indigo-600" href="{% url 'home' %}">Zwiwi</a></p>
   <div class="flex">
@@ -22,35 +22,32 @@
       <!-- left part -->
       <div class="lg:w-1/4  ">
           <div class="lg:fixed">
-               <ul class="flex lg:flex-col font-semibold mt-2 font-mono">
-               {% if user.is_authenticated %}
-                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'add_post' %}">Add post</a></li>
-                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'logout' %}">Logout</a></li>
-                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'add_category' %}">Add category</a></li>
-                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'projects' %}">Projects</a></li>
-                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'blog' %}">Blog</a></li>
-                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'projects' %}">Discord</a></li>
-                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'contact' %}">Contact</a></li>
-                  {% else %}
-                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'register' %}">Register</a></li>
-                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'login' %}">Login</a></li>
-                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'projects' %}">Projects</a></li>
-                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'blog' %}">Blog</a></li>
-                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'projects' %}">Discord</a></li>
-                  <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'contact' %}">Contact</a></li>
-                  {% endif %}
-              </ul>
+             <ul class="flex lg:flex-col font-semibold mt-2 font-mono">
+
+                <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'projects' %}">Projects</a></li>
+                <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'blog' %}">Blog</a></li>
+                <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'projects' %}">Discord</a></li>
+                <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'contact' %}">Contact</a></li>
+                {% if user.is_authenticated %}
+                   <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'add_post' %}">Add post</a></li>
+                   <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'logout' %}">Logout</a></li>
+                   <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'add_category' %}">Add category</a></li>
+                {% else %}
+                   <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'register' %}">Register</a></li>
+                   <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+            </ul>
           </div>
       </div>
       <!-- right part -->
-      <div class="lg:w-3/4 ">
+      <div class="lg:w-3/4">
            {% block content %} {% endblock %}
       </div>
   </div>
 </div
 {% block post %} {% endblock %}
 
-{% block sidebar%} {% endblock %}
+{% block sidebar %} {% endblock %}
 
 </body>
 </html>
