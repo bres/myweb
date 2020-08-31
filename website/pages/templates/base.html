@@ -28,6 +28,7 @@
                 <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'blog' %}">Blog</a></li>
                 <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'projects' %}">Discord</a></li>
                 <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'contact' %}">Contact</a></li>
+ 
                 {% if user.is_authenticated %}
                    <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'add_post' %}">Add post</a></li>
                    <li class="pr-2 pb-2"><a class="text-indigo-600 hover:underline text-lg" href="{% url 'logout' %}">Logout</a></li>

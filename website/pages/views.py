@@ -5,8 +5,7 @@ from .forms import PostForm
 from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView
 from django.urls import reverse_lazy
 
-# Create your views here.
-
+#function based views
 def home(request):
     all_items=Landing_content.objects.all
     latest_post = Post.objects.first()
@@ -19,15 +18,21 @@ def projects(request):
     all_projects=Project.objects.all
     return render(request,"projects.html",{'all_projects':all_projects})
 
+def contact(request):
+    return render(request,"contact.html",{})
 
-
+#categories generic classes
 class AddCategoryView(CreateView):
     model=Category
     #form_class=PostForm
     template_name='add_category.html'
     fields='__all__'
 
+def CategoryView(request, cats):
+    category_posts=Post.objects.filter(category=cats)
+    return render(request,'categories.html',{'cats':cats,'category_posts':category_posts})
 
+#blog generic classes
 class blog(ListView):
     model=Post
     template_name='blog.html'
@@ -53,6 +58,3 @@ class DeletePostView(DeleteView):
     template_name='delete_post.html'
     #fields='__all__'
     success_url =reverse_lazy('blog')
-
-def contact(request):
-    return render(request,"contact.html",{})
